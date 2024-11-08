@@ -8,10 +8,11 @@ import com.flexnet.external.utils.Utils;
 
 import java.util.function.Function;
 
-class ServiceStatic {
-  static final String build = "0004";
+public abstract class ServiceBase {
 
-  static final String version = "2024.11.07";
+  static final String build = "0012";
+
+  static final String version = "2024.11.08";
 
   static final Diagnostics diagnostics = new Diagnostics();
 
@@ -23,6 +24,10 @@ class ServiceStatic {
     return build;
   }
 
+  public static String getBuildVersion() {
+    return String.format("version | %s | %s", getVersion(), getBuild());
+  }
+
   public static Diagnostics getDiagnostics() {
     return diagnostics;
   }
@@ -32,17 +37,16 @@ class ServiceStatic {
     // TODO: we can reduce this potentially -- once levels have been assessed
     Log.setLoggingLevel(Log.Level.trace);
 
-    Log.create(ServiceStatic.class).log(Log.Level.info, String.format("version | %s | %s", getVersion(), getBuild()));
+    Log.create(ServiceBase.class).log(Log.Level.info, getBuildVersion());
   }
-}
-
-public abstract class ServiceBase extends ServiceStatic {
 
   protected final Log logger = Log.create(this.getClass());
 
   protected ServiceBase() {
     this.logger.in();
   }
+
+
 
   protected Token createDiagnosticsToken() {
     final StackTraceElement frame = Thread.currentThread().getStackTrace()[2];
