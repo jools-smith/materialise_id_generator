@@ -10,9 +10,9 @@ import java.util.function.Function;
 
 public abstract class ServiceBase {
 
-  static final String build = "0012";
+  static final String build = "0023";
 
-  static final String version = "2024.11.08";
+  static final String version = "2024.11.12";
 
   static final Diagnostics diagnostics = new Diagnostics();
 

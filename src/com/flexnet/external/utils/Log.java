@@ -81,7 +81,7 @@ public final class Log extends LogStatic {
 
     if (Files.exists(Paths.get(root))) {
       try {
-        final File file = Paths.get(root, "revenera.log").toAbsolutePath().toFile();
+        final File file = Paths.get(root, "materialise-id-generator.log").toAbsolutePath().toFile();
 
         FileUtils.writeLines(file, Collections.singletonList(content), true);
       }
