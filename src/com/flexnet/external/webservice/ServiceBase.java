@@ -10,7 +10,7 @@ import java.util.function.Function;
 
 public abstract class ServiceBase {
 
-  static final String build = "0023";
+  static final String build = "0024";
 
   static final String version = "2024.11.12";
 
@@ -32,7 +32,6 @@ public abstract class ServiceBase {
     return diagnostics;
   }
 
-  // debuggery
   static {
     // TODO: we can reduce this potentially -- once levels have been assessed
     Log.setLoggingLevel(Log.Level.trace);
